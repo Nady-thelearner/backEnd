@@ -25,10 +25,8 @@ module.exports.createUserInDB = (userDetails) => {
       if (error) {
         reject(false);
       } else {
-        resolve(result);
+        resolve(true);
       }
     });
   });
 };
-
-

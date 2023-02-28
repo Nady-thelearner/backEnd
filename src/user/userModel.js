@@ -4,9 +4,9 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 var userSchema = new Schema({
-  name: { type: String },
-  empID: { type: Number },
-  phone: { type: Number },
+  name: { type: String,required : true },
+  empID: { type: Number ,required : true },
+  phone: { type: Number ,required : true},
 });
 
-module.exports = mongoose.model("Employees", userSchema);
+module.exports = mongoose.model('employees', userSchema);
