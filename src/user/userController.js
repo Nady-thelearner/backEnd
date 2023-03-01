@@ -19,8 +19,29 @@ var createUserControllerfn = async (req, res) => {
   }
 };
 
-/* catch(e){
-    console.log(e);
-} */
+var updateUserControllerFn = async (req, res) => {
+  var upd = await userService.updateUserInDB(req.params.id, req.body);
 
-module.exports = { getDataControllerfn, createUserControllerfn };
+  if (upd) {
+    res.send({ status: true, message: "User Updated Succcessfully." });
+  } else {
+    res.send({ status: false, message: "Failed to update." });
+  }
+};
+
+var deleteUserControllerFn = async (req, res) => {
+  var result = await userService.deleteUserInDB(req.params.id);
+
+  if (result) {
+    res.send({ status: true, message: "User deleted Successfully" });
+  } else {
+    res.send({ status: false, message: "Failed to delete." });
+  }
+};
+
+module.exports = {
+  getDataControllerfn,
+  createUserControllerfn,
+  updateUserControllerFn,
+  deleteUserControllerFn
+};
